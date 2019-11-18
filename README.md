@@ -19,8 +19,8 @@ Multi-User Hangman Game (100 Points):
 - Users can create games (5 points)
 - Users can join or watch games (5 points)
 - Displays the ranking of all users (10 points)
-- Creator of games can kick and ban viewers from their game room (10 points)
-- Challenge a specific user to a game (10 points)
+- Creators of games can kick and ban viewers from their game room (10 points)
+- Users can challenge another specific user to a game (10 points)
 
 4. Best Practices (5 Points):
 - Code is well formatted and easy to read, with proper commenting (3 points)
