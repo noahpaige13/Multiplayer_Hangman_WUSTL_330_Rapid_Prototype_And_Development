@@ -12,7 +12,7 @@ Multi-User Hangman Game (100 Points):
 
 2. Frameworks (20 points):
 - Uses React for front-end (10 points)
-- Uses Node.js for back-end (10 points)
+- Uses Express for back-end (10 points)
 
 3. Functionality (50 points):
 - Users can register and log in (10 points)
