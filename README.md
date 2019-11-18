@@ -23,8 +23,9 @@ Multi-User Hangman Game (100 Points):
 - Users can challenge another specific user to a game (10 points)
 
 4. Best Practices (5 Points):
-- Code is well formatted and easy to read, with proper commenting (3 points)
-- Page passes the W3C validator (2 points)
+- Code is well formatted and easy to read, with proper commenting (4 points)
+- Site looks appealing (1 points)
 
 5. Creative Portion (20 Points)
 
+Checked by Tom Janoski 11/18/2019 :
