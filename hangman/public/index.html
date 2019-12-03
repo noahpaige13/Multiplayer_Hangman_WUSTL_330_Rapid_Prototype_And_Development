@@ -4,161 +4,6 @@
 
    <head>
       <title>Multi-Room Chat Server</title>
-      <style>
-         body{
-            width: 1300px;
-            margin: 0 auto;
-            padding: 0;
-            font:12px/16px Verdana, sans-serif;
-         }
-         div#options{
-            float:left;
-            margin-left: 10px;
-            padding: 10px;
-            border-style: dotted;
-            border-color: #315b96;
-            width: 20%;
-         }
-         div#game-list{
-            float: right;
-            margin: 0;
-            padding: 10px;
-            border-style: dotted;
-            border-color: #315b96;
-            width:20%;
-            margin-left:20px;
-
-         }
-         div#root{
-            float: right;
-            margin: 0;
-            padding: 10px;
-            border-style: dotted;
-            border-color: #315b96;
-            width:50%;
-         }
-         div#add{
-            float:right;
-            margin-right: 15px;
-            padding: 10px;
-            border-color: white;
-            width:10%;
-         }
-         div#logout{
-            border-color: white;
-            padding: 10px;
-            display:none;
-         }
-         h1{
-            color: #233567;
-            font-size: 30pt;
-            font-family: Arial, Helvetica, sans-serif;
-            text-align: center;
-         }
-         h3{
-            color: #233567;
-            font-style: oblique;
-         }
-         h2{
-            font-family: Arial, Helvetica, sans-serif;
-            color: #233567;
-            font-size: 12pt;
-            font-weight: bold;
-            text-align: center;
-         }
-         h4{
-            color: #233567;
-            font-size: 10pt;
-         }
-         h5{
-            color: #fbc1bc;
-            text-align: right;
-            font-size: 8pt;
-         }
-         div#chat-input{
-            display:none;
-         }
-         div#add-room{
-            float:right;
-            display: none;
-         }
-         input[type=text]{
-            border-width: thin;
-            border: solid;
-            border-color: #fbc1bc;
-            border-radius: 12px;
-            padding: 10px 10px;
-         }
-         /* input[type=date], [type=time] {
-            border-width: thin;
-            border: solid;
-            border-color: #fbc1bc;
-            border-radius: 12px;
-            padding: 5px 5px;
-         } */
-         button, input[type=button]{
-            border-width: thin;
-            border: solid;
-            border-color: #fbc1bc;
-            background-color: #ffdfdf;
-            padding: 5px 5px;
-            border-radius: 12px;    
-            cursor: pointer;
-            color: #315b96;
-         }
-         div#storyfeed{
-            text-align: center;
-         }
-         div#game-room-name{
-            text-align: center;
-         }
-         /* MODAL */
-         /* The Modal (background) */
-         body {font-family: Arial, Helvetica, sans-serif;}
-         button:hover {
-         opacity: 0.8;
-         }
-         .container {
-         padding: 16px;
-         }
-         span.psw {
-         float: right;
-         padding-top: 16px;
-         }
-         /* The Modal (background) */
-         .modal, .modal1 {
-         display: none; /* Hidden by default */
-         position: fixed; /* Stay in place */
-         z-index: 1; /* Sit on top */
-         left: 0;
-         top: 0;
-         width: 100%; /* Full width */
-         height: 100%; /* Full height */
-         overflow: auto; /* Enable scroll if needed */
-         background-color: rgb(0,0,0); /* Fallback color */
-         background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-         padding-top: 60px;
-         }
-         /* Modal Content/Box */
-         .modal-content {
-         background-color: #fefefe;
-         margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-         border: 1px solid #888;
-         width: 40%; /* Could be more or less, depending on screen size */
-         }
-         /* The Close Button (x) */
-         .close {
-         position: absolute;
-         right: 25px;
-         top: 0;
-         font-size: 35px;
-         font-weight: bold;
-         }
-         .close:hover,
-         .close:focus {
-         cursor: pointer;
-         }
-      </style>
 
       <script src="/socket.io/socket.io.js"></script>
    </head>
@@ -166,51 +11,13 @@
    <body>
 
       <h1>Multi-User Hangman</h1>
-      <div id="options">
-            <div style="display:none;" id="logout">
-                  <h3>Logged in as: </h3><div id="user"> </div><br>
-            </div>
-            <div id="login">
-               <h2>Log In As?</h2>
-                Username: <br><input style ="margin: 8px 0;width:90%" type="text" id="username" placeholder="Username" /><br>
-                <button style="margin: 0px 8px;width:90%" onclick="login()" id="login_btn">Log In</button>
-            </div>
-            <br>
-            <div style="display:none;" id="users">
-               <h3>Users Online</h3>
-               <div id="users-list"></div>
-            </div>
-      </div>
-
-      <div style = display:none; id="game-list">
-            <div id="add-game">
-               <button id="add-game-btn" onclick="openModal()">New Game</button>
-            </div>
-            <div style="display: none;" id="add-game-modal" class="modal">
-               <div class="modal-content">
-                     <span class="close">&times;</span>
-                     <div class="container">
-                           <label for="game_name"><b>Game Name: </b></label>
-                           <input style="width: 90%;" id = "game_name" type="text" placeholder="Enter Game Name" name="game_name" required>
-                     </div>
-      
-                     <div class="container" style="background-color:#f1f1f1">
-                     <button id="cancel_btn" onclick = "closeModal()" >Cancel</button>
-                     <button style="float:right" id="create_game" onclick = "addgame(document.getElementById('game_name').value)">Create</button>
-                     </div>
-                  </div>
-            </div>
-            <h3>Game Rooms List</h3>
-            <div id="game-room-list"></div>
-      </div>
-
+   
       <div id="root"></div>
       
-  
    <script type ="text/javascript">
-
+   
       let roomname = 'Main Lobby';
-      let socketio = io.connect();
+      const socketio = io.connect();
 
       //LOG IN: LOAD GAMES
       socketio.on("login_to_client",function(data) {
@@ -391,31 +198,31 @@
          alert("You cannot delete this game.");
       });
 
-      function login(){
-         if (document.getElementById("username").value != ""){
-            document.getElementById("login").style.display = "none";
-            document.getElementById("logout").style.display = "block";
-            document.getElementById("user").innerHTML = document.getElementById("username").value;
-            document.getElementById("game-list").style.display = "block";
-            document.getElementById("users").style.display = "block";
-            document.getElementById("add-game").style.display = "block";
-            document.getElementById("root").style.display = "block";
+      // function login(){
+      //    if (document.getElementById("username").value != ""){
+      //       document.getElementById("login").style.display = "none";
+      //       document.getElementById("logout").style.display = "block";
+      //       document.getElementById("user").innerHTML = document.getElementById("username").value;
+      //       document.getElementById("game-list").style.display = "block";
+      //       document.getElementById("users").style.display = "block";
+      //       document.getElementById("add-game").style.display = "block";
+      //       document.getElementById("root").style.display = "block";
             
-            let user = document.getElementById("username").value
-            socketio.emit("login_to_server", {user: user});
-         }
-      }
+      //       let user = document.getElementById("username").value
+      //       socketio.emit("login_to_server", {user: user});
+      //    }
+      // }
 
-      function addgame(newgame) {
-         let gm = document.getElementById('game_name').value;
-         let username = document.getElementById('username').value;
+      // function addgame(newgame) {
+      //    let gm = document.getElementById('game_name').value;
+      //    let username = document.getElementById('username').value;
 
-         socketio.emit("add_game_to_server", {game: gm, user: username});
+      //    socketio.emit("add_game_to_server", {game: gm, user: username});
          
-         closeModal();
-         document.getElementById('game-room-name').innerHTML = newgame;
-         gm = document.getElementById('game_name').value = "";
-      }
+      //    closeModal();
+      //    document.getElementById('game-room-name').innerHTML = newgame;
+      //    gm = document.getElementById('game_name').value = "";
+      // }
 
       function changegame(game) {
          console.log("going to: " + game);
@@ -446,29 +253,29 @@
       }
 
       // ADD MODAL
-      let modal = document.getElementById("add-game-modal");
-      let span = document.getElementsByClassName("close")[0];
+      // let modal = document.getElementById("add-game-modal");
+      // let span = document.getElementsByClassName("close")[0];
 
       // When the user clicks on the button, open the modal
-      function openModal() {
-         modal.style.display = "block";
-      }
+      // function openModal() {
+      //    modal.style.display = "block";
+      // }
 
-      function closeModal() {
-         modal.style.display = "none";
-      }
+      // function closeModal() {
+      //    modal.style.display = "none";
+      // }
 
       // When the user clicks on <span> (x), close the modal
-      span.onclick = function() {
-         modal.style.display = "none";
-      }
+      // span.onclick = function() {
+      //    modal.style.display = "none";
+      // }
 
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-         if (event.target == modal) {
-         modal.style.display = "none";
-         }
-      }
+      // // When the user clicks anywhere outside of the modal, close it
+      // window.onclick = function(event) {
+      //    if (event.target == modal) {
+      //    modal.style.display = "none";
+      //    }
+      // }
       </script>
    </body>
 </html>
