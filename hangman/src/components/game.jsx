@@ -1,41 +1,9 @@
 import React, { Component } from 'react';
-import './game.css';
-import io from 'socket.io-client'
-const socket = io(`http://localhost:3000`)
-
+import io from "socket.io-client";
+const socket = io('localhost:8080');
 class Game extends Component {
-    state = {  
-        guessesRemaining: 7,
-        alphabet : ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
-                'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q','R','S',
-                'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
-        lettersGuessed: [],
-        indices:[],
-        word: "America",
-        spaces: [],
-        roomname : 'Main Lobby',
-        // data: null
 
-
-    };
-
-    // componentDidMount() {    
-    //     socket.on(`server:event`, data => {
-    //         this.setState({ data })
-    //     })
-    // }
-
-    // login = user => {
-    //     socket.emit(`client: login_to_server`, user)
-    // }
-    // componentDidMount() {
-    //     fetch('/server')
-    //     .then (res => res.json())
-    //     .then(data => this.setState ({data}))
-    // }
-
-    
-    constructor(){
+    constructor() {
         super();
         this.LetterGuess = this.LetterGuess.bind(this)
         this.CheckGuess = this.CheckGuess.bind(this)
@@ -44,13 +12,23 @@ class Game extends Component {
         this.closeModal = this.closeModal.bind(this) 
         this.openModal = this.openModal.bind(this) 
         this.addGame = this.addGame.bind(this) 
-    }
 
-    render() { 
+        this.state = {
+          guessesRemaining: 7,
+          alphabet : ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+                  'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q','R','S',
+                  'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+          lettersGuessed: [],
+          indices:[],
+          word: "America",
+          spaces: []
+        };
+      }
+    
+    
+      componentDidMount = () => {
 
-        console.log(socket)
-        
-        socket.on("login_to_client",function(data) {
+          socket.on("login_to_client",function(data) {
             while(document.getElementById("game-room-list").firstChild){
                 document.getElementById("game-room-list").removeChild(document.getElementById("game-room-list").firstChild);
              }
@@ -94,7 +72,11 @@ class Game extends Component {
     
                 document.getElementById('game-room-list').appendChild(document.createElement("br"));
              }
-        });
+          })
+      }
+    
+
+    render() { 
 
         return ( 
             
@@ -144,11 +126,7 @@ class Game extends Component {
                         <div id="game-room-list"></div>
                 </div>
 
-
-
-
-
-                <div style={{float:'left'}}> <img src={ require('../stage'+this.state.guessesRemaining+'.png') } /> 
+                <div style={{float:'left'}}> <img alt="" src={ require('../stage'+this.state.guessesRemaining+'.png') } /> 
                 <span  >{this.state.spaces.map(blank => <span>{blank}</span> )}</span>
                 </div>
                 
@@ -165,7 +143,7 @@ class Game extends Component {
         
 
     }
-
+  
     
 
     login(){
@@ -204,9 +182,9 @@ class Game extends Component {
 
     addGame(){
         let gm = document.getElementById('game_name').value;
-        let word = document.getElementById('word').value;
+        // let word = document.getElementById('word').value;
         console.log(gm)
-        let username = document.getElementById('username').value;
+        // let username = document.getElementById('username').value;
 
         // socketio.emit("add_game_to_server", {game: gm, word: word, user: username});
         
@@ -227,7 +205,7 @@ class Game extends Component {
     CheckGuess(letter){
         let s = this.state.word;
         let splits = s.toUpperCase().split('');
-        this.state.indices = [];
+        this.setState({indices :[]});
         let i = this.state.indices;
 
         if (splits.includes(letter)){
@@ -283,8 +261,6 @@ class Game extends Component {
        
         
     }
-
-    
 
     
 }
