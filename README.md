@@ -15,7 +15,7 @@ Multi-User Hangman Game (100 Points):
 - Uses Express for back-end (10 points)
 
 3. Functionality (50 points):
-- Users can register and log in (10 points)
+- Users can register and log in (10 points) 
 - Users can create games (5 points)
 - Users can join or watch games (5 points)
 - Displays the ranking of all users (10 points)

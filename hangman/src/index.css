@@ -18,17 +18,17 @@ div#game-list{
   padding: 10px;
   border-style: dotted;
   border-color: #315b96;
-  width:40%;
+  width:20%;
   margin-left:20px;
   height:550px;
 }
 div#hangman{
   float: right;
-  margin: 0;
+  margin-right: 70px;
   padding: 10px;
   border-style: dotted;
   border-color: #315b96;
-  width:50%;
+  width:40%;
   height:550px;
 }
 div#users{
@@ -37,7 +37,7 @@ div#users{
   padding: 10px;
   border-style: dotted;
   border-color: #315b96;
-  width:40%;
+  width:20%;
   height:550px;
 }
 div#add{
